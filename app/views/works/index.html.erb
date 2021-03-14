@@ -1,0 +1,77 @@
+<p>家事分担アプリ</p>
+<p>メインページ</p>
+
+<p>メインユーザー</p>
+<p>サブユーザー</p>
+
+<p>日付</p>
+
+<div class="card mb-3 mx-3">
+    <div class="card-header">
+        <%= @work.name%>
+    </div>
+    <div class="card-body">
+        <p>担当：田中パパ</p>
+        <button type="button" class="btn btn-secondary mb-12" data-toggle="modal" data-target="#exampleModalCenter">完了</button>
+        <button class="btn btn-secondary mb-12">消耗品エラー</button>
+    </div>
+
+    <div class="card-footer">
+        報告画面
+    </div>
+    <% if @reports %>
+    <div class="card-body">
+        <h5 class="card-title"><%= @reports.message %><h5>
+        <div class="image"><%= image_tag @reports.image%></div>
+    </div>
+    <div class="card-footer">
+        <div class="badge badge-secondary">いいね or だめだね</div>
+        <% if @nices %>
+        <%= link_to image_tag("good.png", class: :goodbad), nices_path,method: :post %><%= @nices%>
+        <%= link_to image_tag("good.png", class: :goodbad), nice_path(@nices),method: :delete %>
+        <% else %>
+        <%= link_to image_tag("good.png", class: :goodbad), nices_path,method: :post %><%= @nices%>
+        <% end %>
+
+        <% if @bads %>
+        <%= link_to image_tag("bad.png", class: :goodbad), bads_path,method: :post %><%= @bads%>
+        <%= link_to image_tag("bad.png", class: :goodbad), bad_path(@bads),method: :delete %>
+        <% else %>
+        <%= link_to image_tag("bad.png", class: :goodbad), bads_path,method: :post %><%= @bads%>
+        <% end %>
+    </div>
+    <% end %>
+</div>
+
+<button>家事分担</button>
+<button>消耗品一覧</button>
+<button>家事追加</button>
+<button>ユーザー追加</button>
+ 
+<!-- 報告画面 -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">報告完了：<%= @work.name  %></h5>
+            </div>
+                <%= form_with model: Report, url: reports_path, local: true do |f| %>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">報告メッセージ</label>
+                        <%= f.text_area :message, class: :form_text, maxlength:"40",cols:"50",rows:"5" %>
+                    </div>
+                    <div class="form-group">
+                        <p><label for="message-text" class="col-form-label">証拠写真(任意)</label></p>
+                        <%= f.file_field :image %>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                    <input type="submit" name="commit" value="報告する" data-disable-with="報告する" class="btn btn-secondary">
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
