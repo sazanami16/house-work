@@ -1,7 +1,11 @@
 class WorksController < ApplicationController
 
+  def index
+    @works = Work.all
+  end
+
   def new
-    @work = work.new
+    @work = Work.new
   end
 
   def create
@@ -13,12 +17,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def show
+    @work = Work.find(params[:id])
+  end
+
 
 
 
   private
 
   def work_params
-    params.require(:work).permit(:name, :rule, :weight).merge(user_id: current_user.id)
+    params.require(:work).permit(:name, :weight, :rule)
   end
 end
