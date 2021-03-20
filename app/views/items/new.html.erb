@@ -1,2 +1,29 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<div class="page-frame">
+ <%= form_with model: @item, url:new_work_path, local: true do |f| %> 
+ <div class="title-frame">
+ 消耗品追加
+ </div>
+
+ <div class="main-frame">
+  <div class="work-item-frame">
+   <div class="work-name">家事名</div>
+   <%= f.text_field :name, class:"item-name", placeholder:"消耗品名" %>
+  </div>
+    <%= f.text_field :quantity, class:"item-quantity", placeholder:"使用量" %>
+<%= f.collection_select(:need_id, Need.all, :id, :name, {}, {class:"need-select"}) %>
+ </div>
+
+
+
+ <div class="save-back-frame">
+ <%= f.submit "保存" ,class:"save-frame" %>
+  <%= link_to "戻る", new_work_path, class:"back-frame" %>
+ </div>
+
+ 
+
+<% end %>
+</div>
+
+
+  
