@@ -1,27 +1,7 @@
-$cBrown: brown;
-$cWhite: whitesmoke;
-
-html {
-  color: black;
-}
-
 .app-title {
   text-align: center;
   height: 300px;
   padding: 150px 150px 50px 150px;
-}
-
-.logout {
-  margin-left: 60px;
-  padding: 10px;
-  border: solid 2px;
-  font-weight: 600;
-  border-radius: 5px;
-}
-
-a {
-  color: $cBrown;
-  text-decoration: none;
 }
 
 .form-group {
@@ -58,16 +38,3 @@ a {
   justify-content: space-evenly;
 }
 
-.login {
-  color: $cBrown;
-  width: 150px;
-  font-weight: 600;
-  border: solid 2px $cBrown;
-  border-radius: 20px;
-  padding: 10px 15px;
-  margin-top: 60px;
-  margin-left: 300px;
-  cursor: pointer;
-}
- .sign-up {
- }
