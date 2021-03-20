@@ -1,0 +1,54 @@
+h1{
+  text-align: center;
+}
+
+h2{
+
+  text-align: left;
+  margin-left: 10%;
+}
+
+.form{
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.work-name,.work-weight,.work-rule{
+  display: block;
+}
+.work-name{
+  height: 50px;
+  width: 80%;
+  margin: 0 auto 15px;
+}
+.work-weight,.work-item{
+  height: 50px;
+  width: 20%;
+  margin-left: 10%;
+  font-size: 20px;
+  text-align: center;
+}
+.work-rule{
+  height: 150px;
+  width: 80%;
+  margin: 0 auto 15px;
+}
+
+.sell-btn-contents {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 4vh;
+  margin-top: 4vh;
+}
+
+.sell-btn, .back-btn {
+  background: #0F0;
+  border: 1px solid #000;
+  color: #000;
+
+  font-weight: bold;
+  font-size: 24px;
+  padding: 2vh 8vw;
+}
+

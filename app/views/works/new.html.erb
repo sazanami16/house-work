@@ -1,0 +1,17 @@
+<h1>家事追加</h1>
+<%= form_with model: @work, url: works_path, local: true do |form| %>
+<div class="form">
+  <h2>家事名</h2>
+   <%= form.text_field :name , class:"work-name"%>
+   <h2>負担レベル</h2>
+   <%= form.collection_select(:weight_id, Weight.all, :id, :name, {}, {class:"work-weight"}) %>
+   <h2>メモ</h2>
+   <%= form.text_area :rule, class:"work-rule" %>
+
+   
+<div class="sell-btn-contents">
+   <%= form.submit '保存' , class:"sell-btn" %>
+   <%= link_to '戻る' ,works_path, class:"back-btn" %>
+</div>
+</div>
+<% end %>

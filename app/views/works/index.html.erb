@@ -1,0 +1,14 @@
+
+<%= link_to "追加" , new_work_path %>
+
+
+
+<div class="contents row">
+  <% @works.each do |work| %>
+      <p><%=link_to work.name, work_path(work.id)  %></p>
+      <span class="name">
+        <%= work.rule %>
+      </span>
+    </div>
+  <% end %>
+</div>
