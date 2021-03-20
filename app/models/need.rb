@@ -1,4 +1,5 @@
 class Need < ActiveHash::Base
+
   self.data = [
     { id: 1, name: '補充しますか？' },
     { id: 2, name: '必要' },
