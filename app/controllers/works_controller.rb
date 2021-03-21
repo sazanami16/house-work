@@ -1,5 +1,6 @@
 class WorksController < ApplicationController
 
+
   def index
     @works = Work.all
   end
@@ -51,5 +52,12 @@ class WorksController < ApplicationController
 
   def work_params
     params.require(:work).permit(:name, :weight_id, :rule)
+
+  def index
+    @reports = Report.find(1)
+    @work = Work.find(1)
+    @nices = Nice.count
+    @bads = Bad.count
+
   end
 end
