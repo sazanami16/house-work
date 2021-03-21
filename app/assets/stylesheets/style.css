@@ -1,108 +1,44 @@
-.btn:hover,
-header.header div.header__bar div.title a.post:hover {
-  border-color: brown;
-  color: burlywood;
-}
-
-header.header {
-  padding: 10px;
-  border-bottom: 1px solid #D8D8D8;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 62px;
-}
-
-header.header div.header__bar {
-  position: relative;
-}
-
-header.header div.header__bar h1.title {
-  font-size: 20px;
-  line-height: 41px;
-  float: left;
-}
-
-header.header {
-  padding: 10px;
-  border-bottom: 1px solid #D8D8D8;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 62px;
-}
-
-header.header div.header__bar {
-  position: relative;
-}
-
-header.header div.header__bar h1.title {
-  font-size: 20px;
-  line-height: 41px;
-  float: left;
-}
-
-header.header .user_nav {
-  position: relative;
-  height: 100px;
-  right: 0;
-}
-
-header.header .user_nav span {
-  top: 5px;
-  display: block;
-  float: left;
-  margin-left: 30px;
-  width: 150px;
-  height: 50px;
-  font-size: 1em;
-  cursor: pointer;
-  position: relative;
-}
-
-header.header .user_nav span:hover ul {
+a {
   color: brown;
-  display: block;
 }
 
-header.header .user_nav ul {
-  display: none;
-  position: absolute;
-  top: 46px;
+header.header {
+  padding: 10px;
+  border-bottom: 1px solid #D8D8D8;
+  top: 0;
+  left: 0;
   right: 0;
-  border-left: 1px solid #d8d8d8;
-  border-right: 1px solid #d8d8d8;
-  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.1);
+  height: 100px;
 }
 
-header.header .user_nav ul li {
-  background-color: #f0f0f0;
+.header_bar {
+  display: flex;
+  height: 80px;
+  padding: 20px 40px 0 40px;
+  
 }
 
-header.header .user_nav ul li a {
-  display: block;
-  padding: 10px 20px;
-  text-align: left;
-  border-bottom: 1px solid #d8d8d8;
+.title_bar {
+  height: 80px;
 }
 
-.login .sign-up {
-  width: 150px;
+div.title_bar {
+  margin: 0 0 0  auto;
+}
+
+.post {
+  display: inline-block;
   font-weight: 600;
+  color: brown;
   border: solid 2px brown;
   border-radius: 20px;
-  padding: 10px 15px;
-  margin-top: 60px;
-  margin-left: 300px;
+  padding: 10px 30px;
+  margin-left: 30px;
   cursor: pointer;
+  text-decoration: none;
 }
 
-.logout {
-  text-decoration: none;
-  color: #333333;
-}
+
 
 .image img{
   max-width: 50%;
