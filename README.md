@@ -1,24 +1,86 @@
-# README
+# テーブル設計　
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :works
+- has_many :reports
+- has_one :nice
+- has_one :bad
 
-* Configuration
 
-* Database creation
+## works テーブル
 
-* Database initialization
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| name   | string     | null: false                    |
+| rule   | text       | null: false                    |
+| weight | integer    | null: false                    |
+| user   | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :items
 
-* Deployment instructions
 
-* ...
+## items テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| name        | string     | null: false                    |
+| quantity    | string     | null: false                    |
+| needs       | string     | null: false                    |
+| work        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :work
+
+## reports テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| message     | string     | null: false                    |
+| user        | references | null: false, foreign_key: true |
+| work        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :work
+- has_one :nice
+- has_one :bad
+
+
+## nice テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| work        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+
+- belongs_to :report
+
+## bad テーブル
+
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| user        | references | null: false, foreign_key: true |
+| work        | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
+- belongs_to :report
