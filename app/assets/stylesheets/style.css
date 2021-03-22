@@ -1,3 +1,44 @@
+a {
+  color: brown;
+}
+
+header.header {
+  padding: 10px;
+  border-bottom: 1px solid #D8D8D8;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+}
+
+.header_bar {
+  display: flex;
+  height: 80px;
+  padding: 20px 40px 0 40px;
+  
+}
+
+.title_bar {
+  height: 80px;
+}
+
+div.title_bar {
+  margin: 0 0 0  auto;
+}
+
+.post {
+  display: inline-block;
+  font-weight: 600;
+  color: brown;
+  border: solid 2px brown;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin-left: 30px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
 .image img{
   max-width: 50%;
   vertical-align: bottom;
@@ -6,3 +47,4 @@
 .goodbad{
   width: 40px;
 }
+
