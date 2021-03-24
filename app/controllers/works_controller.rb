@@ -58,6 +58,6 @@ class WorksController < ApplicationController
     @work = Work.find_by(params[:id])
     @nices = Nice.count
     @bads = Bad.count
-
   end
+end
 end
