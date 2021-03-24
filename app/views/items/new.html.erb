@@ -1,5 +1,5 @@
 <div class="page-frame">
- <%= form_with model: @item, url:new_work_path, local: true do |f| %> 
+ <%= form_with model: @item, url:work_items_path, local: true do |f| %> 
  <div class="title-frame">
  消耗品追加
  </div>
@@ -17,7 +17,7 @@
 
  <div class="save-back-frame">
  <%= f.submit "保存" ,class:"save-frame" %>
-  <%= link_to "戻る", new_work_path, class:"back-frame" %>
+  <%= link_to "戻る", root_path, class:"back-frame" %>
  </div>
 
  

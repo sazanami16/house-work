@@ -4,6 +4,7 @@ class CreateWorks < ActiveRecord::Migration[6.0]
       t.string :name,    null: false
       t.string :rule,      null: false
       t.integer :weight_id, null: false
+      t.references :user, null:false
       t.timestamps
     end
   end
