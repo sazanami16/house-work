@@ -13,18 +13,18 @@
 <div class="item-list">消耗品一覧</div>
 <% @items.each do |item| %>
       <div class='item-info'>
-          <h3 class='item-name'>
-            <%= item.name %>
-          </h3>
-          <div class='item-quantity'>
-            <span><%= item.quantity %></span>
+          <div class='item-name-s'>
+            品名:<%= item.name %>
+          </div>
+          <div class='item-quantity-s'>
+            <span>数量:<%= item.quantity %></span>
           </div>
           <% if item.need.id==2%>補充が必要です<% end %>
           <% if item.need.id==3%>　　　　　　　<% end %>
          <%= link_to '削除',  work_item_path(@work,item), method: :delete, class:'item-destroy' %>
       </div>
       <% end %>
-      <% if @items.nil?%>消耗品が登録されていません<% end %>
+      
    
 <div class="sell-btn-contents">
    <%= link_to '編集' ,edit_work_path, class:"back-btn" %>
