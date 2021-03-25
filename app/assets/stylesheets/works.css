@@ -1,1 +1,22 @@
 /* No CSS *//*# sourceMappingURL=works.css.map */
+.item-list{
+  justify-content: center;
+  font-size: 30px;
+  margin-left: 110px;
+}
+
+.item-info {
+  margin: 50px 110px 30px 110px ;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 2px solid black;
+  font-size: 20px;
+}
+
+.item-add-btn{
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 50px;
+  margin-left: 110px;
+}
