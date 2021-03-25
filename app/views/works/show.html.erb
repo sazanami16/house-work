@@ -8,6 +8,21 @@
    <h2>メモ</h2>
    <%= form.text_area :rule, class:"work-rule" %>
 
+<%= link_to '消耗品の追加',  new_work_item_path(@work.id), method: :get, class: "item-add-btn" %>
+
+<div class="item-list">消耗品一覧</div>
+<% @items.each do |item| %>
+      <div class='item-info'>
+          <h3 class='item-name'>
+            <%= item.name %>
+          </h3>
+          <div class='item-quantity'>
+            <span><%= item.quantity %></span>
+          </div>
+         <%= link_to '削除',  work_item_path(@work,item), method: :delete, class:'item-destroy' %>
+      </div>
+      <% end %>
+      <% if @items.nil?%>消耗品が登録されていません<% end %>
    
 <div class="sell-btn-contents">
    <%= link_to '編集' ,edit_work_path, class:"back-btn" %>
