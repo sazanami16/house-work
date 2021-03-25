@@ -30,5 +30,7 @@ class ItemsController < ApplicationController
   end
   def find_params
     @item = Item.find(params[:id])
+    @work = Item.find(params[:work_id])
+
   end
 end

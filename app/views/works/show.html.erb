@@ -19,6 +19,8 @@
           <div class='item-quantity'>
             <span><%= item.quantity %></span>
           </div>
+          <% if item.need.id==2%>補充が必要です<% end %>
+          <% if item.need.id==3%>　　　　　　　<% end %>
          <%= link_to '削除',  work_item_path(@work,item), method: :delete, class:'item-destroy' %>
       </div>
       <% end %>
