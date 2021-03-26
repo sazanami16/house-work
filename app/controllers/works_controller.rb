@@ -52,12 +52,6 @@ class WorksController < ApplicationController
 
   def work_params
     params.require(:work).permit(:name, :weight_id, :rule)
-
-  def index
-    @reports = Report.find_by(params[:id])
-    @work = Work.find_by(params[:id])
-    @nices = Nice.count
-    @bads = Bad.count
-
   end
+
 end
