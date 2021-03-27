@@ -1,12 +1,13 @@
-<div class="contents">
-<div class="container">
-<div>メインページ</div>
+<div class="main-contents">
+   <%= render "works/side_bar" %>
+      <div class="main-container">
+         <div>メインページ</div>
 
-<p>メインユーザー</p>
-<p>サブユーザー</p>
+        <%=@user %>
+        <p>サブユーザー</p>
 
-<p>日付</p>
-
+        <p>日付</p>
+        
         <div class="card mb-3 mx-3">
             <div class="card-header">
                 <%= @work%>
@@ -44,10 +45,9 @@
             <% end %>
         </div>
 
-        <button>家事分担</button>
-        <button>消耗品一覧</button>
-        <button>家事追加</button>
-        <button>ユーザー追加</button>
+        <%= link_to "消耗品一覧", root_path, class: "post" %>
+        <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>
+        <%= link_to "ユーザー追加", root_path, class: "post" %>
         
 <!-- 報告画面 -->
 
@@ -77,5 +77,4 @@
             </div>
         </div>
     </div>
-
 </div>
