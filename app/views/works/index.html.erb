@@ -30,17 +30,21 @@
                                 <div class="card-footer">
                                     <div class="badge badge-secondary">いいね or だめだね</div>
                                     <% if current_user.already_nices?(@reports)%>
-                                    <%= link_to image_tag("good.png", class: :goodbad), report_nice_path(@reports,@reports.nices),method: :delete %>
+                                        <%= link_to image_tag("good.png", class: :goodbad), report_nice_path(@reports,@reports.nices),method: :delete %>
+                                        <%= @reports.nices.count %>
+                                        <%= link_to image_tag("bad.png", class: :goodbad) %>
+                                        <%= @reports.bads.count %>
+                                    <% elsif current_user.already_bads?(@reports) %>
+                                        <%= link_to image_tag("good.png", class: :goodbad) %>
+                                        <%= @reports.nices.count %>
+                                        <%= link_to image_tag("bad.png", class: :goodbad), report_bad_path(@reports,@reports.bads),method: :delete %>
+                                        <%= @reports.bads.count %>
                                     <% else %>
-                                    <%= link_to image_tag("good.png", class: :goodbad), report_nices_path(@reports),method: :post %>
+                                        <%= link_to image_tag("good.png", class: :goodbad), report_nices_path(@reports),method: :post %>
+                                        <%= @reports.nices.count %>
+                                        <%= link_to image_tag("bad.png", class: :goodbad), report_bads_path(@reports),method: :post %>  
+                                        <%= @reports.bads.count %>
                                     <% end %>
-                                    <%= @reports.nices.count %>
-                                    <% if current_user.already_bads?(@reports) %>
-                                    <%= link_to image_tag("bad.png", class: :goodbad), report_bad_path(@reports,@reports.bads),method: :delete %>
-                                    <% else %>
-                                    <%= link_to image_tag("bad.png", class: :goodbad), report_bads_path(@reports),method: :post %>   
-                                    <% end %>
-                                    <%= @reports.bads.count %>
                                 </div>
                                 <% end %>
                             </div>  
