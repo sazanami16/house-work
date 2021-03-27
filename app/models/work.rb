@@ -9,6 +9,7 @@ class Work < ApplicationRecord
 
   has_many :items
   belongs_to :user
+  has_many :reports
   
 
 end
