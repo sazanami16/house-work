@@ -1,53 +1,51 @@
 <div class="contents">
-<div class="container">
-<div>メインページ</div>
-
-<p>メインユーザー</p>
-<p>サブユーザー</p>
-
-<p>日付</p>
-    <% @works.each do |work| %>
-        <% @reports = Report.find_by(work_id: work.id) %>
-        <div class="card mb-3 mx-3">
-            <div class="card-header">
-                <%= work.name %>
-            </div>
-            <div class="card-body">
-                <p>担当：田中パパ</p>
-                <% if @reports %>
-                <% else %>
-                <button type="button" class="btn btn-secondary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
-                <% end %>
-                <button class="btn btn-secondary mb-12">消耗品エラー</button>
-            </div>
-            <div class="card-footer">
-                報告画面
-            </div>
+    <div class="container">
+        <div>メインページ</div>
+            <p>メインユーザー</p>
+                <p>サブユーザー</p>
+                    <p>日付</p>
+                        <% @works.each do |work| %>
+                            <% @reports = Report.find_by(work_id: work.id) %>
+                            <div class="card mb-3 mx-3">
+                                <div class="card-header">
+                                <%= work.name %>
+                                </div>
+                                <div class="card-body">
+                                    <p>担当：田中パパ</p>
+                                <% if @reports %>
+                                <% else %>
+                                    <button type="button" class="btn btn-secondary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
+                                <% end %>
+                                    <button class="btn btn-secondary mb-12">消耗品エラー</button>
+                                </div>
+                                <div class="card-footer">
+                                    報告画面
+                                </div>
             
-            <% if @reports  %>
-                <div class="card-body">
-                    <h5 class="card-title"><%= @reports.message %><h5>
-                    <p class="reportimage"><%= image_tag @reports.image %></p>                            
-                </div>
-                <div class="card-footer">
-                    <div class="badge badge-secondary">いいね or だめだね</div>
-                        <% if current_user.already_nices?(@reports)%>
-                            <%= link_to image_tag("good.png", class: :goodbad), report_nice_path(@reports,@reports.nices),method: :delete %>
-                        <% else %>
-                            <%= link_to image_tag("good.png", class: :goodbad), report_nices_path(@reports),method: :post %>
+                                <% if @reports  %>
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= @reports.message %><h5>
+                                    <p class="reportimage"><%= image_tag @reports.image %></p>                            
+                                </div>
+                                <div class="card-footer">
+                                    <div class="badge badge-secondary">いいね or だめだね</div>
+                                    <% if current_user.already_nices?(@reports)%>
+                                    <%= link_to image_tag("good.png", class: :goodbad), report_nice_path(@reports,@reports.nices),method: :delete %>
+                                    <% else %>
+                                    <%= link_to image_tag("good.png", class: :goodbad), report_nices_path(@reports),method: :post %>
+                                    <% end %>
+                                    <%= @reports.nices.count %>
+                                    <% if current_user.already_bads?(@reports) %>
+                                    <%= link_to image_tag("bad.png", class: :goodbad), report_bad_path(@reports,@reports.bads),method: :delete %>
+                                    <% else %>
+                                    <%= link_to image_tag("bad.png", class: :goodbad), report_bads_path(@reports),method: :post %>   
+                                    <% end %>
+                                    <%= @reports.bads.count %>
+                                </div>
+                                <% end %>
+                            </div>  
                         <% end %>
-                            <%= @reports.nices.count %>
-                        <% if current_user.already_bads?(@reports) %>
-                            <%= link_to image_tag("bad.png", class: :goodbad), report_bad_path(@reports,@reports.bads),method: :delete %>
-                        <% else %>
-                            <%= link_to image_tag("bad.png", class: :goodbad), report_bads_path(@reports),method: :post %>   
-                        <% end %>
-                            <%= @reports.bads.count %>
-                    </div>
-                </div>
-            <% end %>
-            <% end %>
-        </div>
+    </div>
     
 
         <button>家事分担</button>
