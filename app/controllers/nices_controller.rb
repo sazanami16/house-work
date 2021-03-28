@@ -1,12 +1,14 @@
 class NicesController < ApplicationController
   def create
-    nice = Nice.create([user_id: 1,report_id: 1])
-    redirect_to "/"
+    nice = Nice.new(user_id: current_user.id,report_id: params[:report_id])
+    nice.save()
+    redirect_to root_path
   end
 
   def destroy
-    nice = Nice.find(1)
+    nice = Nice.find_by(user_id: current_user.id,report_id: params[:report_id])
     nice.destroy
-    redirect_to "/"
+    redirect_to root_path
   end
+
 end

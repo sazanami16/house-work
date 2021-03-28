@@ -3,6 +3,7 @@ class WorksController < ApplicationController
 
   def index
     @works = Work.all
+    @items = Item.includes(:work)
   end
 
   def new
@@ -20,6 +21,7 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find(params[:id])
+    @items = Item.includes(:work)
   end
 
   def edit
@@ -34,14 +36,14 @@ class WorksController < ApplicationController
       render :edit
     end
   end
-  
+
 
   def destroy
     work = Work.find(params[:id])
     if work.destroy
       redirect_to root_path
     else
-      render work_path(work.id)
+      render work_item_path(work.id)
     end
   end
 
@@ -54,11 +56,5 @@ class WorksController < ApplicationController
     params.require(:work).permit(:name, :weight_id, :rule)
   end
 
-  def index
-    @reports = Report.find_by(params[:id])
-    @work = Work.find_by(params[:id])
-    @nices = Nice.count
-    @bads = Bad.count
-
-  end
+end
 end
