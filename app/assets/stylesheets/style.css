@@ -37,7 +37,13 @@ div.title_bar {
   cursor: pointer;
   text-decoration: none;
 }
+.main-contents {
+  display: flex;
+}
 
+.main-container {
+  margin-left: 300px;
+}
 .reportimage img{
   width: 90%;
 }
@@ -52,3 +58,17 @@ div.title_bar {
   width: 40px;
 }
 
+.side-bar-header {
+  background-color: burlywood;
+  height: calc(100vh - 100px);  
+  width: 250px;
+  padding: 0px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-name {
+  font-size: 16px;
+  color: #fafafa;
+  text-decoration: none;
+}
