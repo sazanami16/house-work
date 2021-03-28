@@ -5,7 +5,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :works
+  has_many :reports
+  has_many :nices
+  has_many :bads
+  def already_nices?(report)
+    self.nices.exists?(report_id: report.id)
+  end
 
-  has_many :work
+  def already_bads?(report)
+    self.bads.exists?(report_id: report.id)
+  end
 
 end
