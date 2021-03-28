@@ -53,8 +53,8 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:name, :weight_id, :rule)
+    params.require(:work).permit(:name, :weight_id, :rule).merge(user_id: current_user.id)
   end
 
 end
-end
+
