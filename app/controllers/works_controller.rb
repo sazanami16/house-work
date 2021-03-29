@@ -33,7 +33,7 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to work_path(@work.id)
     else
-      render :edit
+      redirect_to edit_work_path(@work.id)
     end
   end
 
