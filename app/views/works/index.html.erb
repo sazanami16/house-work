@@ -23,6 +23,13 @@
             <p>メインユーザー</p>
                 <p>サブユーザー</p>
                     <p>日付</p>
+                        <% if @reports && @reports.errors.any? %>
+                            <ul>
+                            <% @reports.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                            <% end %>
+                            </ul>
+                        <% end %>
                         <% @works.each do |work| %>              
                             <% @reports = current_user.reports.order(updated_at: :desc).limit(1).find_by(work_id: work.id) %>
                             <div class="card mb-3 mx-3">
