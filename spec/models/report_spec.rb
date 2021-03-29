@@ -11,6 +11,30 @@ RSpec.describe Report, type: :model do
         expect(@report).to be_valid
       end
     end
+    
+    context '報告の保存できない場合' do
+      it 'メッセージが空だと登録できない' do
+        @report.message = nil
+        @report.valid?
+        expect(@report.errors.full_messages).to include("Message can't be blank")
+      end
+      it 'imageが空だと登録できない' do
+        @report.image = nil
+        @report.valid?
+        expect(@report.errors.full_messages).to include("Image can't be blank")
+      end
+      it 'ユーザが紐付いていないと登録できない' do
+        @report.user = nil
+        @report.valid?
+        expect(@report.errors.full_messages).to include('User must exist')
+      end
+      it '家事が紐付いていないと商品は保存できない' do
+        @report.work = nil
+        @report.valid?
+        expect(@report.errors.full_messages).to include('Work must exist')
+      end
+    end
+
 end
 
 end
