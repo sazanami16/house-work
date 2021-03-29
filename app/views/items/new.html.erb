@@ -1,30 +1,19 @@
-<div class="page-frame">
- <%= form_with model: @item, url:work_items_path, local: true do |f| %> 
- <div class="title-frame">
- 消耗品追加
- </div>
+<div class="contents">
+   <div class="container">
+      <h1 class="title-frame">消耗品追加</h1>
+        <%= form_with model: @item, url:work_items_path, local: true do |f| %> 
+          <div class="main-frame">
+              <%= f.text_field :name, class:"item-name", placeholder:"消耗品名" %>
+              <%= f.text_field :quantity, class:"item-quantity", placeholder:"使用量" %>
+              <%= f.collection_select(:need_id, Need.all, :id, :name, {}, {class:"need-select"}) %>
+          </div>
 
- <div class="main-frame">
-  <div class="work-item-frame">
-    
-   
-   <%= f.text_field :name, class:"item-name", placeholder:"消耗品名" %>
-  </div>
-    <%= f.text_field :quantity, class:"item-quantity", placeholder:"使用量" %>
-<%= f.collection_select(:need_id, Need.all, :id, :name, {}, {class:"need-select"}) %>
- </div>
-
-
-
- <div class="save-back-frame">
- <%= f.submit "保存" ,class:"save-frame" %>
-  <%= link_to "戻る", root_path, class:"back-frame" %>
- </div>
-
- 
-
-<% end %>
+            <div class="save-back-frame">
+              <%= f.submit "保存" ,class:"item-btn" %>
+              <%= link_to "戻る", root_path, class:"item-btn" %>
+            </div>
+        <% end %> 
+    </div>
 </div>
-
 
   

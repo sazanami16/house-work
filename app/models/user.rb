@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :reports
   has_many :nices
   has_many :bads
+
+  validates :name, presence: true
+
   def already_nices?(report)
     self.nices.exists?(report_id: report.id)
   end
