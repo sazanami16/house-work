@@ -39,11 +39,11 @@ class WorksController < ApplicationController
 
 
   def destroy
-    work = Work.find(params[:id])
-    if work.destroy
+    @work = Work.find(params[:id])
+    if @work.destroy
       redirect_to root_path
     else
-      render work_item_path(work.id)
+      render work_item_path(@work.id)
     end
   end
 
@@ -53,8 +53,8 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:name, :weight_id, :rule)
+    params.require(:work).permit(:name, :weight_id, :rule, :parson)
   end
 
 end
-end
+

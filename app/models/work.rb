@@ -7,7 +7,7 @@ class Work < ApplicationRecord
   validates :rule, presence: true
 
 
-  has_many :items
+  has_many :items, dependent: :destroy
   belongs_to :user
   has_many :reports
   
