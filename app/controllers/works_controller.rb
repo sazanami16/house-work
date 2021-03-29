@@ -33,8 +33,7 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to work_path(@work.id)
     else
-      redirect_to edit_work_path(@work.id)
-    end
+      render template: "works/edit", work: @work    end
   end
 
 
