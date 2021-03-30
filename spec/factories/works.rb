@@ -3,6 +3,6 @@ FactoryBot.define do
     name { Faker::Lorem.sentence }
     rule { Faker::Lorem.sentence }
     weight_id { 2 }
-    association :user
+    parson { Faker::Lorem.sentence }
   end
 end
