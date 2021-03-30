@@ -5,10 +5,10 @@ class Work < ApplicationRecord
   validates :name, presence: true
   validates :weight_id, numericality: { other_than: 1 }
   validates :rule, presence: true
+  validates :parson, presence: true
 
 
-  has_many :items
-  belongs_to :user
+  has_many :items, dependent: :destroy
   has_many :reports
   
 

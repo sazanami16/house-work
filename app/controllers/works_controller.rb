@@ -32,27 +32,27 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to work_path(@work.id)
     else
-      render :edit
-    end
+      render template: "works/edit", work: @work    end
   end
 
 
   def destroy
-    work = Work.find(params[:id])
-    if work.destroy
+    @work = Work.find(params[:id])
+    if @work.destroy
       redirect_to root_path
     else
-      render work_item_path(work.id)
+      render work_item_path(@work.id)
     end
   end
-
-
-
 
   private
 
   def work_params
-    params.require(:work).permit(:name, :weight_id, :rule)
+
+    params.require(:work).permit(:name, :weight_id, :rule, :parson).merge(user_id: current_user.id)
   end
 
 end
+
+
+

@@ -6,6 +6,9 @@
    <%= form.collection_select(:weight_id, Weight.all, :id, :name, {}, {class:"work-weight"}) %>
    <h2>メモ</h2>
    <%= form.text_area :rule, class:"work-rule" %>
+   <h2>担当者</h2>
+   <%= form.text_field :parson, class:"work-name" %>
+   
 
 <div class="sell-btn-contents">
    <%= form.submit '保存' , class:"sell-btn" %>
