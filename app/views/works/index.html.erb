@@ -1,22 +1,50 @@
+
+
+<div class="contents">
+    <div class="sidebar">
+        <div class="drawer drawer--left">
+        	<button type="button" class="drawer-toggle drawer-hamburger">
+			    <span class="drawer-hamburger-icon"></span>
+		    </button>
+		    <nav class="drawer-nav" role="navigation">
+			    <ul class="drawer-menu">
+				    <li><h4>家事一覧</h4></li>
+                    <% @works.each do |work| %>  
+				    <li><a class="drawer-menu-item" href="#"><%= work.name %></a></li>
+                    <% end %>
+			    </ul>
+		    </nav>
+        </div>
+    </div>
+            
+       
+    </div>
+    <div class="container">
+
 <div class="main-contents">
    <%= render "works/side_bar" %>
       <div class="main-container">
+
         <div>メインページ</div>
             <p>メインユーザー</p>
                 <p>サブユーザー</p>
                     <p>日付</p>
-                        <% @works.each do |work| %>
-                            <% @reports = Report.find_by(work_id: work.id) %>
+                        <% if @reports && @reports.errors.any? %>
+                            <ul>
+                            <% @reports.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                            <% end %>
+                            </ul>
+                        <% end %>
+                        <% @works.each do |work| %>              
+                            <% @reports = current_user.reports.order(updated_at: :desc).limit(1).find_by(work_id: work.id) %>
                             <div class="card mb-3 mx-3">
                                 <div class="card-header">
                                 <%= work.name %>
                                 </div>
                                 <div class="card-body">
                                     <p>担当：田中パパ</p>
-                                <% if @reports %>
-                                <% else %>
                                     <button type="button" class="btn btn-secondary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
-                                <% end %>
                                     <button class="btn btn-secondary mb-12">消耗品エラー</button>
                                 </div>
 
@@ -66,7 +94,7 @@
                                 <% end %>
                             </div>
                         <% end %>
-    
+    </div>
 
         <%= link_to "消耗品一覧", new_work_item_path(:work_id), method: :get, class: "post" %>
         <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>

@@ -71,6 +71,18 @@ div.title_bar {
   width: 40px;
 }
 
+.contents{
+  display: flex;
+}
+
+.drawer-menu li h4{
+  padding-left: 30px;
+  padding-top: 30px;
+}
+.drawer-menu li a{
+  padding-left: 30px;
+}
+
 .side-bar-header {
   background-color: burlywood;
   height: calc(100vh - 100px);  

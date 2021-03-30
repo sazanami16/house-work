@@ -1,10 +1,11 @@
 class ReportsController < ApplicationController
   def create
-    @report = Report.new(report_params)
-    if @report.save
+    @reports = Report.new(report_params)
+    @works = Work.all
+    if @reports.save
       redirect_to root_path
     else
-      redirect_to root_path
+      render template: "works/index", work: @works, report: @reports
     end
   end
 

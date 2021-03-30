@@ -1,6 +1,5 @@
 class WorksController < ApplicationController
 
-
   def index
     @works = Work.all
     @items = Item.includes(:work)
@@ -46,31 +45,14 @@ class WorksController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def work_params
 
-    params.require(:work).permit(:name, :weight_id, :rule, :parson)
+    params.require(:work).permit(:name, :weight_id, :rule, :parson).merge(user_id: current_user.id)
   end
 
 end
 
-
-    params.require(:work).permit( :weight_id, :name, :rule).merge(user_id: current_user.id)
-  end
-  def index
-    @reports = Report.find(1)
-    @work = Work.find(1)
-    @nices = Nice.count
-    @bads = Bad.count
-
-
-  end
-
-end
-end
 
 
