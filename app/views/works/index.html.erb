@@ -1,5 +1,6 @@
-<div class="contents">
-    <div class="container">
+<div class="main-contents">
+   <%= render "works/side_bar" %>
+      <div class="main-container">
         <div>メインページ</div>
             <p>メインユーザー</p>
                 <p>サブユーザー</p>
@@ -65,39 +66,39 @@
                                 <% end %>
                             </div>
                         <% end %>
-    </div>
+    
 
-        <button>家事分担</button>
-        <button>消耗品一覧</button>
-        <button>家事追加</button>
-        <button>ユーザー追加</button>
-
-    <!-- 報告画面 -->
-    <% @works.each do |work| %>
-        <div class="modal fade" id="target<%= work.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">報告完了：<%= work.name  %></h5>
-                    </div>
-                        <%= form_with model: Report, url: work_reports_path(work.id), local: true do |f| %>
-                        <div class="modal-body">
-                            <div class="form-group mx-3">
-                                <label for="message-text" class="col-form-label">報告メッセージ</label>
-                                <%= f.text_area :message, class: :form_text, maxlength:"40",cols:"50",rows:"5" %>
-                            </div>
-                            <div class="form-group mx-3">
-                                <p><label for="message-text" class="col-form-label">証拠写真</label></p>
-                                <%= f.file_field :image %>
-                            </div>
+        <%= link_to "消耗品一覧", new_work_item_path(:work_id), method: :get, class: "post" %>
+        <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>
+        <%= link_to "ユーザー追加", root_path, class: "post" %>
+        
+       <!-- 報告画面 -->
+        <% @works.each do |work| %>
+            <div class="modal fade" id="target<%= work.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">報告完了：<%= work.name  %></h5>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                            <input type="submit" name="commit" value="報告する" data-disable-with="報告する" class="btn btn-secondary">
-                        </div>
+                            <%= form_with model: Report, url: work_reports_path(work.id), local: true do |f| %>
+                            <div class="modal-body">
+                                <div class="form-group mx-3">
+                                    <label for="message-text" class="col-form-label">報告メッセージ</label>
+                                    <%= f.text_area :message, class: :form_text, maxlength:"40",cols:"50",rows:"5" %>
+                                </div>
+                                <div class="form-group mx-3">
+                                    <p><label for="message-text" class="col-form-label">証拠写真</label></p>
+                                    <%= f.file_field :image %>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+                                <input type="submit" name="commit" value="報告する" data-disable-with="報告する" class="btn btn-secondary">
+                            </div>
                         <% end %>
                     </div>
                 </div>
             </div>
-        </div>
-    <% end %>
+        <% end %>
+    </div>
+</div>

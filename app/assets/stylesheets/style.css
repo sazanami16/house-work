@@ -26,6 +26,17 @@ div.title_bar {
   margin: 0 0 0  auto;
 }
 
+.title-frame {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin: 40px 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: solid 3px black;
+}
+
 .post {
   display: inline-block;
   font-weight: 600;
@@ -36,6 +47,14 @@ div.title_bar {
   margin-left: 30px;
   cursor: pointer;
   text-decoration: none;
+  background-color: rgb(239, 239, 239);
+}
+.main-contents {
+  display: flex;
+}
+
+.main-container {
+  margin-left: 300px;
 }
 
 .reportimage img{
@@ -52,3 +71,17 @@ div.title_bar {
   width: 40px;
 }
 
+.side-bar-header {
+  background-color: burlywood;
+  height: calc(100vh - 100px);  
+  width: 250px;
+  padding: 0px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-name {
+  font-size: 16px;
+  color: #fafafa;
+  text-decoration: none;
+}
