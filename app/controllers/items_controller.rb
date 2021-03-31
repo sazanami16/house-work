@@ -6,7 +6,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-   @item = Item.new(item_params)
+    @item = Item.new(item_params)
+
     if @item.save
       redirect_to "/works/#{@item.work.id}"
     else
@@ -23,11 +24,13 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name,:quantity,:need_id).merge(work_id: params[:work_id])
+    params.require(:item).permit(:name, :quantity, :need_id).merge(work_id: params[:work_id])
   end
+
   def work_params
     params.require(:work).permit(:name, :weight_id, :rule)
   end
+
   def find_params
     @item = Item.find(params[:id])
   end

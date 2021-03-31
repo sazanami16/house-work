@@ -1,33 +1,8 @@
-
-
-<div class="contents">
-    <div class="sidebar">
-        <div class="drawer drawer--left">
-        	<button type="button" class="drawer-toggle drawer-hamburger">
-			    <span class="drawer-hamburger-icon"></span>
-		    </button>
-		    <nav class="drawer-nav" role="navigation">
-			    <ul class="drawer-menu">
-				    <li><h4>家事一覧</h4></li>
-                    <% @works.each do |work| %>  
-				    <li><a class="drawer-menu-item" href="#"><%= work.name %></a></li>
-                    <% end %>
-			    </ul>
-		    </nav>
-        </div>
-    </div>
-            
-       
-    </div>
-    <div class="container">
-
 <div class="main-contents">
    <%= render "works/side_bar" %>
       <div class="main-container">
-
         <div>メインページ</div>
             <p>メインユーザー</p>
-                <p>サブユーザー</p>
                     <p>日付</p>
                         <% if @reports && @reports.errors.any? %>
                             <ul>
@@ -44,24 +19,19 @@
                                 </div>
                                 <div class="card-body">
                                     <p>担当：田中パパ</p>
-                                    <button type="button" class="btn btn-secondary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
-                                    <button class="btn btn-secondary mb-12">消耗品エラー</button>
+                                    <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
+                                  <%# 消耗品エラー表示ようのコード　ページが整ったら反映させます %>
+                                            <%= link_to work_path(work.id) do %>
+                                                <% @items.each do |item| %>
+                                                    <% if item.need.id == 2 && work.id == item.work_id %>
+                                                        <button class="btn btn-danger mb-12">消耗品エラー</button>
+                                                    <% break %>
+                                                    <% end %>
+                                                <% end %>
+                                            <% end %>
                                 </div>
 
-                                <%# 消耗品エラー表示ようのコード　ページが整ったら反映させます %>
-
-                                        <%# <% @works.each do |work| %>
-                                         <%# <%= link_to work_path(work.id) do %>
-                                            <%# <%= work.name %>
-                                           <%# <% @items.each do |item| %>
-                                            <%# <div class='item-info'> %>
-                                            <%# <% if item.need.id==3%>
-                                             <%# <button class="btn btn-secondary mb-12">消耗品エラー</button> %>
-                                            <%# <% end %>
-                                            <%# </div> %>
-                                           <%# <% end %>
-                                         <%# <% end %>
-                                        <%# <% end %>
+                          
 
                                 <div class="card-footer">
                                     報告画面
@@ -93,40 +63,10 @@
                                 </div>
                                 <% end %>
                             </div>
-                        <% end %>
-    </div>
-
+                        <% end %>        
         <%= link_to "消耗品一覧", new_work_item_path(:work_id), method: :get, class: "post" %>
         <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>
         <%= link_to "ユーザー追加", root_path, class: "post" %>
-        
-       <!-- 報告画面 -->
-        <% @works.each do |work| %>
-            <div class="modal fade" id="target<%= work.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">報告完了：<%= work.name  %></h5>
-                        </div>
-                            <%= form_with model: Report, url: work_reports_path(work.id), local: true do |f| %>
-                            <div class="modal-body">
-                                <div class="form-group mx-3">
-                                    <label for="message-text" class="col-form-label">報告メッセージ</label>
-                                    <%= f.text_area :message, class: :form_text, maxlength:"40",cols:"50",rows:"5" %>
-                                </div>
-                                <div class="form-group mx-3">
-                                    <p><label for="message-text" class="col-form-label">証拠写真</label></p>
-                                    <%= f.file_field :image %>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
-                                <input type="submit" name="commit" value="報告する" data-disable-with="報告する" class="btn btn-secondary">
-                            </div>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
-        <% end %>
+        <%= render "works/report" %>
     </div>
 </div>

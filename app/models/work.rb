@@ -1,5 +1,4 @@
 class Work < ApplicationRecord
-
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :weight
   validates :name, presence: true
@@ -9,7 +8,5 @@ class Work < ApplicationRecord
 
   belongs_to :user
   has_many :items, dependent: :destroy
-  has_many :reports
-  
-
+  has_many :reports, dependent: :destroy
 end

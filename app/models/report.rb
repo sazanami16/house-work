@@ -5,6 +5,6 @@ class Report < ApplicationRecord
   has_many :nices
   has_many :bads
 
-  validates :message,presence: true
-  validates :image,presence: true
+  validates :message, presence: true
+  validates :image, presence: true
 end

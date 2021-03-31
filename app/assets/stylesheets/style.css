@@ -61,7 +61,6 @@ div.title_bar {
   width: 90%;
 }
 
-
 .image img{
   max-width: 50%;
   vertical-align: bottom;
@@ -71,25 +70,12 @@ div.title_bar {
   width: 40px;
 }
 
-.contents{
-  display: flex;
-}
-
 .drawer-menu li h4{
   padding-left: 30px;
   padding-top: 30px;
 }
-.drawer-menu li a{
+.drawer-menu li span{
   padding-left: 30px;
-}
-
-.side-bar-header {
-  background-color: burlywood;
-  height: calc(100vh - 100px);  
-  width: 250px;
-  padding: 0px 20px;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .header-name {

@@ -1,6 +1,18 @@
   <div class="side-bar-header">
-       <div class="works-show">
-      
-       </div>
+    <div class="works-show">
+      <div class="drawer drawer--left">
+        <button type="button" class="drawer-toggle drawer-hamburger">
+			    <span class="drawer-hamburger-icon"></span>
+		    </button>
+		    <nav class="drawer-nav" role="navigation">
+			    <ul class="drawer-menu">
+				    <li><h4>家事一覧</h4></li>
+            <% @works.each do |work| %>  
+				    <li><span><%= link_to work.name, work_path(work.id) %></span></li>
+            <% end %>
+			    </ul>
+		    </nav>
+      </div>
+    </div>
    </div>
    
