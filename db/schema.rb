@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_20_061047) do
-  
+ActiveRecord::Schema.define(version: 2021_03_26_121517) do
+
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -45,16 +45,10 @@ ActiveRecord::Schema.define(version: 2021_03_20_061047) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "quantity", null: false
-    t.integer "need_id", null: false
     t.bigint "work_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["work_id"], name: "index_items_on_work_id"
-  end
-
-  create_table "needs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "nices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -77,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_061047) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -90,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_03_20_061047) do
   end
 
   create_table "works", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-
     t.string "name", null: false
     t.text "rule", null: false
     t.string "parson", null: false
@@ -99,11 +92,9 @@ ActiveRecord::Schema.define(version: 2021_03_20_061047) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_works_on_user_id"
-
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "items", "works"
   add_foreign_key "works", "users"
-
 end
