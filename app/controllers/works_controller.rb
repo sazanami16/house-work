@@ -1,7 +1,7 @@
 class WorksController < ApplicationController
 
   def index
-    @works = Work.all
+    @works = current_user.work
     @items = Item.includes(:work)
   end
 
@@ -20,7 +20,7 @@ class WorksController < ApplicationController
 
   def show
     @work = Work.find(params[:id])
-    @items = Item.includes(:work)
+    @items = @work.items.includes(:work)
   end
 
   def edit
