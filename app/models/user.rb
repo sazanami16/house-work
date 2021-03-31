@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :reports
   has_many :nices
   has_many :bads
+  has_many :work
 
   validates :name, presence: true
 

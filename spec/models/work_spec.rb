@@ -33,6 +33,11 @@ RSpec.describe Work, type: :model do
         @work.valid?
         expect(@work.errors.full_messages).to include("Parson can't be blank")
       end
+      it 'ユーザーが紐付いていないと商品は保存できない' do
+        @work.user = nil
+        @work.valid?
+        expect(@work.errors.full_messages).to include('User must exist')
+      end
     end
   end
 end
