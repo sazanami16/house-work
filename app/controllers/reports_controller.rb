@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController
   def create
     @reports = Report.new(report_params)
-    @works = Work.all
+    @works = current_user.work
     if @reports.save
       redirect_to root_path
     else
