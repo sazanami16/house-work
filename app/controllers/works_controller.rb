@@ -1,5 +1,4 @@
 class WorksController < ApplicationController
-
   def index
     @works = current_user.work
     @items = Item.includes(:work)
@@ -32,9 +31,8 @@ class WorksController < ApplicationController
     if @work.update(work_params)
       redirect_to work_path(@work.id)
     else
-      render template: "works/edit", work: @work    end
+      render template: 'works/edit', work: @work end
   end
-
 
   def destroy
     @work = Work.find(params[:id])
@@ -48,11 +46,6 @@ class WorksController < ApplicationController
   private
 
   def work_params
-
     params.require(:work).permit(:name, :weight_id, :rule, :parson).merge(user_id: current_user.id)
   end
-
 end
-
-
-

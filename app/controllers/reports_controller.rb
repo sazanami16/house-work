@@ -5,12 +5,13 @@ class ReportsController < ApplicationController
     if @reports.save
       redirect_to root_path
     else
-      render template: "works/index", work: @works, report: @reports
+      render template: 'works/index', work: @works, report: @reports
     end
   end
 
   private
+
   def report_params
-    params.require(:report).permit(:message,:image).merge(user_id: current_user.id,work_id: params[:work_id])
+    params.require(:report).permit(:message, :image).merge(user_id: current_user.id, work_id: params[:work_id])
   end
 end

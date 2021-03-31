@@ -12,11 +12,10 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   def already_nices?(report)
-    self.nices.exists?(report_id: report.id)
+    nices.exists?(report_id: report.id)
   end
 
   def already_bads?(report)
-    self.bads.exists?(report_id: report.id)
+    bads.exists?(report_id: report.id)
   end
-
 end

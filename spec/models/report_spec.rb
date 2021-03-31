@@ -11,7 +11,7 @@ RSpec.describe Report, type: :model do
         expect(@report).to be_valid
       end
     end
-    
+
     context '報告の保存できない場合' do
       it 'メッセージが空だと登録できない' do
         @report.message = nil
@@ -34,7 +34,5 @@ RSpec.describe Report, type: :model do
         expect(@report.errors.full_messages).to include('Work must exist')
       end
     end
-
-end
-
+  end
 end
