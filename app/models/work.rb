@@ -9,7 +9,7 @@ class Work < ApplicationRecord
 
   belongs_to :user
   has_many :items, dependent: :destroy
-  has_many :reports
+  has_many :reports, dependent: :destroy
   
 
 end
