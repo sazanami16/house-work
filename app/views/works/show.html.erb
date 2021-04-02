@@ -1,38 +1,62 @@
-<h1>家事詳細</h1>
-<%= form_with model: @work, url: works_path, local: true do |form| %>
-<div class="form">
-  <h2>家事名</h2>
-   <%= form.text_field :name , class:"work-name"%>
-   <h2>負担レベル</h2>
-   <%= form.collection_select(:weight_id, Weight.all, :id, :name, {}, {class:"work-weight"}) %>
-   <h2>メモ</h2>
-   <%= form.text_area :rule, class:"work-rule" %>
-   <h2>担当者</h2>
-   <%= form.text_field :parson, class:"work-name" %>
-   
+<div class="contents">
+   <div class="container">
+      <h1 class="title-frame">家事追加</h1>    
+        <%= form_with model: @work, url: works_path, local: true do |form| %>
+          <div class="form-wrap">
+              <div class="form-group">
+                <div class="form_text_wrap">
+                    <label class="form-text">家事名</label>
+                       <%= form.text_field :name , class:"work-name"%>
+                </div>
+              </div>
 
-<%= link_to '消耗品の追加',  new_work_item_path(@work.id), method: :get, class: "item-add-btn" %>
+            <div class="form-group">
+               <div class="form_text_wrap">
+                  <label class="form-text">負担レベル</label>
+                       <%= form.collection_select(:weight_id, Weight.all, :id, :name, {}, {class:"work-weight"}) %>
+               </div>
+             </div>
+
+            <div class="form-group">
+               <div class="form_text_wrap">
+                  <label class="form-text">家事ルール</label>
+                       <%= form.text_area :rule, class:"work-rule" %>
+               </div>
+             </div>
+
+            <div class="form-group">
+               <div class="form_text_wrap">
+                  <label class="form-text">担当者名</label>
+                       <%= form.text_field :parson, class:"work-name" %>
+               </div>
+            </div>
+
+          <%= link_to '消耗品の追加',  new_work_item_path(@work.id), method: :get, class: "item-add-btn" %>
 
 
-<div class="item-list">消耗品一覧</div>
-<% @items.each do |item| %>
-      <div class='item-info'>
-          <div class='item-name-s'>
-            品名:<%= item.name %>
-          </div>
-          <div class='item-quantity-s'>
-            <span>数量:<%= item.quantity %></span>
-          </div>
-          <% if item.need.id==2%>補充が必要です<% end %>
-          <% if item.need.id==3%>　　　　　　　<% end %>
-         <%= link_to '削除',  work_item_path(@work,item), method: :delete, class:'item-destroy' %>
-      </div>
-      <% end %>
-      
-   
-<div class="sell-btn-contents">
-   <%= link_to '編集' ,edit_work_path, class:"back-btn" %>
-   <%= link_to '戻る' ,works_path, class:"back-btn" %>
+          <div class="item-list">消耗品一覧</div>
+             <% @items.each do |item| %>
+                <div class='item-info'>
+                    <div class='item-name-s'>
+                      品名:<%= item.name %>
+                    </div>
+                    <div class='item-quantity-s'>
+                      <span>数量:<%= item.quantity %></span>
+                    </div>
+                    <% if item.need.id==2%>補充が必要です<% end %>
+                    <% if item.need.id==3%>            <% end %>
+                  <%= link_to '削除',  work_item_path(@work,item), method: :delete, class:'item-destroy' %>
+                </div>
+             <% end %>
+                
+            
+             <div class="form-submit">
+                 <div class="actions">
+                    <%= link_to '編集' ,edit_work_path, class:"submit-btn" %>
+                    <%= link_to '戻る' ,works_path, class:"submit-btn" %>
+                 </div>
+             </div>
+           </div>
+        <% end %>
+    </div>
 </div>
-</div>
-<% end %>
