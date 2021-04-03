@@ -24,7 +24,15 @@ header.header {
 }
 
 div.title_bar {
+  display: flex;
   margin: 0 0 0  auto;
+}
+
+.main-user,
+.main-date {
+  height: 50px;
+  font-size: 20px;
+  margin: 20px 20px 0 20px;
 }
 
 .title-frame {
@@ -40,7 +48,9 @@ div.title_bar {
 }
 
 .post {
-  display: inline-block;
+  width: 150px;
+  height: 50px;
+  text-align: center;
   font-weight: 600;
   color: brown;
   border: solid 2px brown;
@@ -56,6 +66,7 @@ div.title_bar {
 }
 
 .main-container {
+  margin-top: 100px;
   margin-left: 300px;
 }
 
