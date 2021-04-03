@@ -14,17 +14,19 @@
                         <% @works.each do |work| %>              
                             <% @reports = current_user.reports.order(updated_at: :desc).limit(1).find_by(work_id: work.id) %>
                             <div class="card mb-3 mx-3">
+                            <%= link_to work_path(work.id) do %>
                                 <div class="card-header">
                                 <%= work.name %>
                                 </div>
+                                <% end %>
                                 <div class="card-body">
-                                    <p>担当：田中パパ</p>
+                                    <p>担当:<%= work.parson %></p>
                                     <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
                                   <%# 消耗品エラー表示ようのコード　ページが整ったら反映させます %>
                                             <%= link_to work_path(work.id) do %>
                                                 <% @items.each do |item| %>
                                                     <% if item.need.id == 2 && work.id == item.work_id %>
-                                                        <button class="btn btn-danger mb-12">消耗品エラー</button>
+                                                        <button class="btn btn-danger mb-12">補充が必要な消耗品があります</button>
                                                     <% break %>
                                                     <% end %>
                                                 <% end %>
@@ -64,7 +66,6 @@
                                 <% end %>
                             </div>
                         <% end %>        
-        <%= link_to "消耗品一覧", new_work_item_path(:work_id), method: :get, class: "post" %>
         <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>
         <%= link_to "ユーザー追加", root_path, class: "post" %>
         <%= render "works/report" %>
