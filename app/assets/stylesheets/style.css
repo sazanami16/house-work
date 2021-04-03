@@ -4,6 +4,7 @@
 }
 
 header.header {
+  width: 100%;
   padding: 10px;
   border-bottom: 1px solid #D8D8D8;
   top: 0;
@@ -30,9 +31,11 @@ div.title_bar {
 
 .main-user,
 .main-date {
+  font-size: 15px;
+  width: 160px;
   height: 50px;
   font-size: 20px;
-  margin: 20px 20px 0 20px;
+  margin: 20px 20px 0 25px;
 }
 
 .title-frame {
@@ -66,17 +69,17 @@ div.title_bar {
 }
 
 .main-container {
-  margin-top: 100px;
-  margin-left: 300px;
+  width: 80%;
+  margin: 100px 80px 100px 250px;
 }
 
-.reportimage img{
-  width: 90%;
-}
+.report-image {
+  width: 60%;
+  margin: 0 auto;
 
-.image img{
-  max-width: 50%;
-  vertical-align: bottom;
+}
+.report-image img{
+  width: 100%;
 }
 
 .goodbad{
