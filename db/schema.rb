@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 2021_03_26_121517) do
     t.index ["work_id"], name: "index_items_on_work_id"
   end
 
+  create_table "needs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "nices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "report_id", null: false

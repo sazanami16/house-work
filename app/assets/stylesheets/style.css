@@ -1,5 +1,6 @@
-a {
-  color: brown;
+
+.contents {
+  height: 100%;
 }
 
 header.header {
@@ -27,6 +28,7 @@ div.title_bar {
 }
 
 .title-frame {
+  color: brown;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -34,7 +36,7 @@ div.title_bar {
   font-size: 50px;
   margin: 40px 0 20px 0;
   padding-bottom: 10px;
-  border-bottom: solid 3px black;
+  border-bottom: solid 3px brown;
 }
 
 .post {
