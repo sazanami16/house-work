@@ -11,12 +11,21 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/css/drawer.min.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="index">
     <header class="header">
       <div class="header_bar">
-        <h1 class="title_bar"><a href="/">HouseWork</a></h1>
+        <h1 class="title_bar">
+          <%= link_to image_tag("logo.png", class: "app_logo"), root_path,method: :get %>
+        </h1>
         <% if user_signed_in? %>
           <div class="title_bar">
+            <div class="main-user">
+              <b><%= current_user.name%></h6><%=" さん" %></b>
+            </div>
+            <div class="main-date">
+              <%= l Time.current, format: :short %>
+            </div>
+            <%= link_to "家事追加", new_work_path, method: :get, class: "post" %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "post" %>
           </div>
         <% end %>
