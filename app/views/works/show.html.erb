@@ -34,7 +34,7 @@
           <div class="item-list">
              <div class="item-part">
                <b>消耗品一覧</b>
-               <%= link_to '消耗品の追加',  new_work_item_path(@work.id), method: :get, class: "item-add-btn" %>
+               <b><%= link_to '消耗品の追加',  new_work_item_path(@work.id), method: :get, class: "item-add-btn" %></b>
              </div>
           </div>
              <% @items.each do |item| %>

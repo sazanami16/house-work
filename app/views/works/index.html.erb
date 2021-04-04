@@ -13,13 +13,13 @@
             <div class="card mb-3 mx-3">
             <%= link_to work_path(work.id) do %>
                 <div class="card-header">
-                <%= work.name %>
+                <b><%= work.name %></b>
                 </div>
                 <% end %>
                 <div class="card-body">
                     <p>担当:<%= work.parson %></p>
-                    <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完了</button>
-                    <%# 消耗品エラー表示ようのコード　ページが整ったら反映させます %>
+                    <button type="button" class="btn btn-primary mb-12" data-toggle="modal" data-target="#target<%= work.id %>">完  了</button>
+                    <%# 消耗品エラー表示ようのコードページが整ったら反映させます %>
                             <%= link_to work_path(work.id) do %>
                                 <% @items.each do |item| %>
                                     <% if item.need.id == 2 && work.id == item.work_id %>
