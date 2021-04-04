@@ -35,6 +35,11 @@
   margin-top: 60px;
 }
 
+div.save-back-frame a {
+  text-decoration: none;
+  color: brown;
+}
+
 .item-btn {
   font-weight: 600;
   width: 200px;
@@ -49,6 +54,7 @@
   text-align: center;
   background-color: rgb(239, 239, 239);
 }
+
 div.item-part a {
   text-decoration: none;
   color: brown;
