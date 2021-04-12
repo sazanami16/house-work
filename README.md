@@ -1,9 +1,21 @@
+![FootPrints](app/assets/images/logo.png)
 # 家事分担アプリ(87期チームa)
 家事を分担し、管理することができます。
 
 # 概要
 ## 家事の追加、分担
 &nbsp; 必要な家事を追加し、登録されているユーザーに分担することができます。家事の負担レベルを登録できます。
+
+### 本番環境
+https://house-work87.herokuapp.com/
+ログイン情報(テストアカウント)
+
++ testuser@test.com
+
++ test95
+
+  </div>
+
 ## 家事完了報告
 &nbsp; 家事が完了したら画像つきで報告できます。また、他のユーザーがそれを「いいね」「ダメだね」で評価することができます。
 ## 消耗品管理
@@ -11,21 +23,21 @@
 
 # Demo
 ## トップページ
-![トップページ]()  
+![FootPrints](app/assets/images/toppage.png)
 &nbsp; トップページに登録した家事の一覧が表示されています。家事詳細画面、追加ページにそれぞれ推移できます。家事の完了報告もこのページから実施します。
 ## 家事追加機能
-![家事追加ページ]()  
+![FootPrints](app/assets/images/workadd.png)
 &nbsp; 家事名、担当者、負担レベル、家事ルールを入力し保存します。
 
 ## 家事詳細ページ
-![家事詳細ページ]()  
+![FootPrints](app/assets/images/workdetail.png)
 &nbsp; 家事の詳細を確認できます。また消耗品追加ボタンより、消耗品を追加できます。
 ## 消耗品追加ページ
-![消耗品追加ページ]()  
+![FootPrints](app/assets/images/expenadd.png)
 &nbsp; 消耗品名、容量、追加の必要を選択します。
 
 ## 家事報告機能
-![家事報告機能]()  
+![FootPrints](app/assets/images/report.png)  
 &nbsp; 家事を画像つきで報告できます。また、その報告に対して「いいね」「ダメだね」で評価できます。
 
 # 工夫したポイント
@@ -130,4 +142,3 @@
 
 - belongs_to :user
 - belongs_to :report
-
